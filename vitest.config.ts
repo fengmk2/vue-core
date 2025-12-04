@@ -73,11 +73,10 @@ export default defineConfig({
         test: {
           name: 'e2e',
           environment: 'jsdom',
-          poolOptions: {
-            threads: {
-              singleThread: !!process.env.CI,
-            },
-          },
+          ...(process.env.CI && {
+            maxWorkers: 1,
+            isolate: false,
+          }),
           include: ['packages/vue/__tests__/e2e/*.spec.ts'],
         },
       },

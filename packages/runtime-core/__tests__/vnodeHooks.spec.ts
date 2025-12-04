@@ -39,7 +39,7 @@ describe('renderer: vnode hooks', () => {
   }
 
   test('should work on element', () => {
-    const hooks: VNodeProps = {
+    const hooks = {
       onVnodeBeforeMount: vi.fn(),
       onVnodeMounted: vi.fn(),
       onVnodeBeforeUpdate: vi.fn(vnode => {
@@ -56,7 +56,7 @@ describe('renderer: vnode hooks', () => {
       }),
       onVnodeBeforeUnmount: vi.fn(),
       onVnodeUnmounted: vi.fn(),
-    }
+    } as VNodeProps
 
     assertHooks(hooks, h('div', hooks, 'foo'), h('div', hooks, 'bar'))
   })
@@ -64,7 +64,7 @@ describe('renderer: vnode hooks', () => {
   test('should work on component', () => {
     const Comp = (props: { msg: string }) => props.msg
 
-    const hooks: VNodeProps = {
+    const hooks = {
       onVnodeBeforeMount: vi.fn(),
       onVnodeMounted: vi.fn(),
       onVnodeBeforeUpdate: vi.fn(vnode => {
@@ -81,7 +81,7 @@ describe('renderer: vnode hooks', () => {
       }),
       onVnodeBeforeUnmount: vi.fn(),
       onVnodeUnmounted: vi.fn(),
-    }
+    } as VNodeProps
 
     assertHooks(
       hooks,
