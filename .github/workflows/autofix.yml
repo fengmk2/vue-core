@@ -5,6 +5,9 @@ on:
 permissions:
   contents: read
 
+env:
+  VP_TOKEN: ${{ secrets.VP_TOKEN }}
+
 jobs:
   autofix:
     runs-on: ubuntu-latest
