@@ -8,8 +8,10 @@ catalog:
   'estree-walker': ^2.0.2
   'magic-string': ^0.30.21
   'source-map-js': ^1.2.1
-  'vite': ^7.0.3
+  'vite': npm:@voidzero-dev/vite-plus-core@latest
   '@vitejs/plugin-vue': ^6.0.2
+  vitest: npm:@voidzero-dev/vite-plus-test@latest
+  '@voidzero-dev/vite-plus': latest
 
 onlyBuiltDependencies:
   - '@swc/core'
@@ -25,3 +27,11 @@ peerDependencyRules:
     '@typescript-eslint/parser>eslint': '^9.0.0'
     '@typescript-eslint/type-utils>eslint': '^9.0.0'
     '@typescript-eslint/utils>eslint': '^9.0.0'
+    vite: npm:@voidzero-dev/vite-plus-core*
+    vitest: npm:@voidzero-dev/vite-plus-test*
+  allowAny:
+    - vite
+    - vitest
+overrides:
+  vite: 'catalog:'
+  vitest: 'catalog:'

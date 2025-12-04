@@ -4,13 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite dev",
     "build": "vite build",
     "serve": "vite preview"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "catalog:",
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "@voidzero-dev/vite-plus": "catalog:"
   },
   "dependencies": {
     "@vue/repl": "^4.7.0",
