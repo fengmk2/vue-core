@@ -43,7 +43,7 @@ function mockProps(extra: BaseTransitionProps = {}, withKeepAlive = false) {
     doneEnter: {},
     doneLeave: {},
   }
-  const props: BaseTransitionProps = {
+  const props = {
     onBeforeEnter: vi.fn(el => {
       if (!extra.persisted && !withKeepAlive) {
         expect(el.parentNode).toBeNull()
@@ -67,7 +67,7 @@ function mockProps(extra: BaseTransitionProps = {}, withKeepAlive = false) {
     onAfterAppear: vi.fn(),
     onAppearCancelled: vi.fn(),
     ...extra,
-  }
+  } as BaseTransitionProps
   return {
     props,
     cbs,
