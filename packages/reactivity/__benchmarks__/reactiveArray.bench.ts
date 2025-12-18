@@ -1,4 +1,4 @@
-import { bench } from 'vitest'
+import { bench } from '@voidzero-dev/vite-plus/test'
 import {
   effect,
   reactive,

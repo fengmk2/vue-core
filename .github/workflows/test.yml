@@ -7,6 +7,9 @@ on:
 permissions:
   contents: read # to fetch code (actions/checkout)
 
+env:
+  VP_TOKEN: ${{ secrets.VP_TOKEN }}
+
 jobs:
   unit-test:
     runs-on: ubuntu-latest
