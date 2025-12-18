@@ -8,10 +8,10 @@ catalog:
   'estree-walker': ^2.0.2
   'magic-string': ^0.30.21
   'source-map-js': ^1.2.1
-  'vite': npm:@voidzero-dev/vite-plus-core@latest
+  'vite': npm:@voidzero-dev/vite-plus-core@0.0.0-7ee085e9ae3b2ccda8287c542bf4b23f324b910f
   '@vitejs/plugin-vue': ^6.0.2
-  vitest: npm:@voidzero-dev/vite-plus-test@latest
-  '@voidzero-dev/vite-plus': latest
+  vitest: npm:@voidzero-dev/vite-plus-test@0.0.0-7ee085e9ae3b2ccda8287c542bf4b23f324b910f
+  '@voidzero-dev/vite-plus': 0.0.0-7ee085e9ae3b2ccda8287c542bf4b23f324b910f
 
 onlyBuiltDependencies:
   - '@swc/core'
