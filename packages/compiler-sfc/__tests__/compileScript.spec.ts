@@ -1,4 +1,4 @@
-import { vi } from 'vitest'
+import { vi } from '@voidzero-dev/vite-plus/test'
 import { BindingTypes } from '@vue/compiler-core'
 import {
   assertCode,

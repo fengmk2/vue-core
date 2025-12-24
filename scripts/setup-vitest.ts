@@ -1,6 +1,6 @@
 import type { MockInstance } from '@voidzero-dev/vite-plus/test'
 
-declare module 'vitest' {
+declare module '@voidzero-dev/vite-plus/test' {
   interface Assertion<T = any> extends CustomMatchers<T> {}
   interface AsymmetricMatchersContaining extends CustomMatchers {}
 }
