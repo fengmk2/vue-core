@@ -1,4 +1,4 @@
-import type { MockInstance } from 'vitest'
+import type { MockInstance } from '@voidzero-dev/vite-plus/test'
 import { h, render } from '@vue/runtime-dom'
 
 describe('customized built-in elements support', () => {

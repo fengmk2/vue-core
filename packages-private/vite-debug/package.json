@@ -3,13 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite dev",
     "build": "vite build",
     "serve": "vite preview"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "catalog:",
     "vite": "catalog:",
-    "vue": "workspace:*"
+    "vue": "workspace:*",
+    "@voidzero-dev/vite-plus": "catalog:"
   }
 }
