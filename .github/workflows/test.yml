@@ -1,6 +1,8 @@
 name: 'test'
 
-on: workflow_call
+# on: workflow_call
+on:
+  pull_request:
 
 permissions:
   contents: read # to fetch code (actions/checkout)
