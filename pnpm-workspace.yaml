@@ -1,6 +1,6 @@
 packages:
-  - 'packages/*'
-  - 'packages-private/*'
+  - packages/*
+  - packages-private/*
 
 catalog:
   '@babel/parser': ^7.28.5
@@ -8,17 +8,17 @@ catalog:
   'estree-walker': ^2.0.2
   'magic-string': ^0.30.21
   'source-map-js': ^1.2.1
-  'vite': npm:@voidzero-dev/vite-plus-core@0.0.0-c7b66cd099b15e21fbe90ab6252482e0bf100e43
-  '@vitejs/plugin-vue': ^6.0.2
-  vitest: npm:@voidzero-dev/vite-plus-test@0.0.0-c7b66cd099b15e21fbe90ab6252482e0bf100e43
-  '@voidzero-dev/vite-plus': 0.0.0-c7b66cd099b15e21fbe90ab6252482e0bf100e43
+  'vite': npm:@voidzero-dev/vite-plus-core@0.0.0-c10c45a293020f462d7f4eee20f9dc761e44fe53
+  '@vitejs/plugin-vue': ^6.0.3
+  vitest: npm:@voidzero-dev/vite-plus-test@0.0.0-c10c45a293020f462d7f4eee20f9dc761e44fe53
+  '@voidzero-dev/vite-plus': 0.0.0-c10c45a293020f462d7f4eee20f9dc761e44fe53
 
 onlyBuiltDependencies:
   - '@swc/core'
-  - 'esbuild'
-  - 'puppeteer'
-  - 'simple-git-hooks'
-  - 'unrs-resolver'
+  - esbuild
+  - puppeteer
+  - simple-git-hooks
+  - unrs-resolver
 
 peerDependencyRules:
   allowedVersions:
