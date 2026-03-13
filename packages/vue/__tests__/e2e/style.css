@@ -1,10 +1,10 @@
 .test {
-  -webkit-transition: opacity 50ms ease;
-  transition: opacity 50ms ease;
+  -webkit-transition: opacity 300ms ease;
+  transition: opacity 300ms ease;
 }
 .group-move {
-  -webkit-transition: -webkit-transform 50ms ease;
-  transition: transform 50ms ease;
+  -webkit-transition: -webkit-transform 300ms ease;
+  transition: transform 300ms ease;
 }
 .v-appear,
 .v-enter,
@@ -21,27 +21,27 @@
 }
 .test-reflow-leave-active,
 .test-reflow-enter-active {
-  -webkit-transition: opacity 50ms ease;
-  transition: opacity 50ms ease;
+  -webkit-transition: opacity 300ms ease;
+  transition: opacity 300ms ease;
 }
 .test-reflow-leave-from {
   opacity: 0.9;
 }
 .test-anim-enter-active {
-  animation: test-enter 50ms;
-  -webkit-animation: test-enter 50ms;
+  animation: test-enter 300ms;
+  -webkit-animation: test-enter 300ms;
 }
 .test-anim-leave-active {
-  animation: test-leave 50ms;
-  -webkit-animation: test-leave 50ms;
+  animation: test-leave 300ms;
+  -webkit-animation: test-leave 300ms;
 }
 .test-anim-long-enter-active {
-  animation: test-enter 100ms;
-  -webkit-animation: test-enter 100ms;
+  animation: test-enter 600ms;
+  -webkit-animation: test-enter 600ms;
 }
 .test-anim-long-leave-active {
-  animation: test-leave 100ms;
-  -webkit-animation: test-leave 100ms;
+  animation: test-leave 600ms;
+  -webkit-animation: test-leave 600ms;
 }
 @keyframes test-enter {
   from {

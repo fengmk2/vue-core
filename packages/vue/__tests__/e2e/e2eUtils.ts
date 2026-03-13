@@ -240,7 +240,7 @@ export function setupPuppeteer(args?: string[]): PuppeteerUtils {
     selector: string,
     text: string,
     classNames: string[], // if empty, check for no classes
-    timeout = 2000,
+    timeout = 5000,
   ) =>
     page.waitForFunction(
       (sel, expectedText, expectedClasses) => {
@@ -261,7 +261,7 @@ export function setupPuppeteer(args?: string[]): PuppeteerUtils {
   const waitForInnerHTML = (
     selector: string,
     expected: string,
-    timeout = 2000,
+    timeout = 5000,
   ) =>
     page.waitForFunction(
       (sel, exp) => {

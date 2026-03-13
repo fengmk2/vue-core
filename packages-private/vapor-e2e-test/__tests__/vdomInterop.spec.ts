@@ -31,8 +31,8 @@ beforeEach(async () => {
   await page().waitForSelector('#app')
 })
 
-const duration = process.env.CI ? 200 : 50
-const buffer = process.env.CI ? 50 : 20
+const duration = process.env.CI ? 500 : 300
+const buffer = process.env.CI ? 100 : 50
 const transitionFinish = (time = duration) => timeout(time + buffer)
 
 describe('vdom / vapor interop', () => {

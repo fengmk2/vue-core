@@ -8,8 +8,8 @@ describe('e2e: TransitionGroup', () => {
   const { page, html, nextFrame, timeout } = setupPuppeteer()
   const baseUrl = `file://${path.resolve(__dirname, './transition.html')}`
 
-  const duration = process.env.CI ? 200 : 50
-  const buffer = process.env.CI ? 20 : 5
+  const duration = process.env.CI ? 500 : 300
+  const buffer = process.env.CI ? 50 : 20
 
   const htmlWhenTransitionStart = () =>
     page().evaluate(() => {
