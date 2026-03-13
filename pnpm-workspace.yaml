@@ -6,9 +6,9 @@ catalog:
   '@babel/parser': ^7.29.0
   '@babel/types': ^7.29.0
   'estree-walker': ^2.0.2
-  'vite': npm:@voidzero-dev/vite-plus-core@^0.1.10
-  'vitest': npm:@voidzero-dev/vite-plus-test@^0.1.10
-  'vite-plus': ^0.1.10
+  'vite': npm:@voidzero-dev/vite-plus-core@^0.1.11
+  'vitest': npm:@voidzero-dev/vite-plus-test@^0.1.11
+  'vite-plus': ^0.1.11
   '@vitejs/plugin-vue': ^6.0.4
   'magic-string': ^0.30.21
   'source-map-js': ^1.2.1
