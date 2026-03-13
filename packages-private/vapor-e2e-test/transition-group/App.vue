@@ -45,7 +45,7 @@ const currentCase = selectedCase.default
 .test-move,
 .test-enter-active,
 .test-leave-active {
-  transition: all 50ms cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 300ms cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 .test-enter-from,

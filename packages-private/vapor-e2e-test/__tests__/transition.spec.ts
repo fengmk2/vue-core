@@ -17,8 +17,8 @@ const {
   domClick,
 } = setupPuppeteer()
 
-const duration = process.env.CI ? 200 : 50
-const buffer = process.env.CI ? 50 : 20
+const duration = process.env.CI ? 500 : 300
+const buffer = process.env.CI ? 100 : 50
 
 function toSlug(value: string) {
   return value
@@ -1836,16 +1836,16 @@ describe('vapor transition', () => {
           (await transitionStart(btnSelector, containerSelector)).innerHTML,
         ).toBe(`<div>2</div><div class="v-enter-from v-enter-active">1</div>`)
 
-        await nextTick()
+        await nextFrame()
         await click(btnSelector)
         await waitForInnerHTML(
           containerSelector,
           `<div class="v-enter-active v-enter-to">1</div><div class="v-enter-from v-enter-active">2</div>`,
         )
 
-        await click(btnSelector)
-        await waitForInnerHTML(
-          containerSelector,
+        expect(
+          (await transitionStart(btnSelector, containerSelector)).innerHTML,
+        ).toBe(
           `<div class="v-enter-from v-enter-active">2</div><div class="v-enter-from v-enter-active">1</div>`,
         )
 
