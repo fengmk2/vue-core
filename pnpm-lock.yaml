@@ -60,11 +60,11 @@ importers:
         specifier: ^6.1.4
         version: 6.1.4
       '@vitest/coverage-v8':
-        specifier: ^4.0.18
-        version: 4.0.18(@voidzero-dev/vite-plus-test@0.1.11)
+        specifier: ^4.1.0
+        version: 4.1.0(@voidzero-dev/vite-plus-test@0.1.11)
       '@vitest/ui':
-        specifier: ^4.0.18
-        version: 4.0.18(@voidzero-dev/vite-plus-test@0.1.11)
+        specifier: ^4.1.0
+        version: 4.1.0(@voidzero-dev/vite-plus-test@0.1.11)
       '@vue/consolidate':
         specifier: 1.0.0
         version: 1.0.0
@@ -151,10 +151,10 @@ importers:
         version: '@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)'
       vite-plus:
         specifier: 'catalog:'
-        version: 0.1.11(@types/node@24.10.13)(@vitest/ui@4.0.18)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)
+        version: 0.1.11(@types/node@24.10.13)(@vitest/ui@4.1.0)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)
       vitest:
         specifier: 'catalog:'
-        version: '@voidzero-dev/vite-plus-test@0.1.11(@types/node@24.10.13)(@vitest/ui@4.0.18)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)'
+        version: '@voidzero-dev/vite-plus-test@0.1.11(@types/node@24.10.13)(@vitest/ui@4.1.0)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)'
 
   packages-private/benchmark:
     dependencies:
@@ -2021,25 +2021,25 @@ packages:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
       vue: ^3.2.25
 
-  '@vitest/coverage-v8@4.0.18':
-    resolution: {integrity: sha512-7i+N2i0+ME+2JFZhfuz7Tg/FqKtilHjGyGvoHYQ6iLV0zahbsJ9sljC9OcFcPDbhYKCet+sG8SsVqlyGvPflZg==}
+  '@vitest/coverage-v8@4.1.0':
+    resolution: {integrity: sha512-nDWulKeik2bL2Va/Wl4x7DLuTKAXa906iRFooIRPR+huHkcvp9QDkPQ2RJdmjOFrqOqvNfoSQLF68deE3xC3CQ==}
     peerDependencies:
-      '@vitest/browser': 4.0.18
-      vitest: 4.0.18
+      '@vitest/browser': 4.1.0
+      vitest: 4.1.0
     peerDependenciesMeta:
       '@vitest/browser':
         optional: true
 
-  '@vitest/pretty-format@4.0.18':
-    resolution: {integrity: sha512-P24GK3GulZWC5tz87ux0m8OADrQIUVDPIjjj65vBXYG17ZeU3qD7r+MNZ1RNv4l8CGU2vtTRqixrOi9fYk/yKw==}
+  '@vitest/pretty-format@4.1.0':
+    resolution: {integrity: sha512-3RZLZlh88Ib0J7NQTRATfc/3ZPOnSUn2uDBUoGNn5T36+bALixmzphN26OUD3LRXWkJu4H0s5vvUeqBiw+kS0A==}
 
-  '@vitest/ui@4.0.18':
-    resolution: {integrity: sha512-CGJ25bc8fRi8Lod/3GHSvXRKi7nBo3kxh0ApW4yCjmrWmRmlT53B5E08XRSZRliygG0aVNxLrBEqPYdz/KcCtQ==}
+  '@vitest/ui@4.1.0':
+    resolution: {integrity: sha512-sTSDtVM1GOevRGsCNhp1mBUHKo9Qlc55+HCreFT4fe99AHxl1QQNXSL3uj4Pkjh5yEuWZIx8E2tVC94nnBZECQ==}
     peerDependencies:
-      vitest: 4.0.18
+      vitest: 4.1.0
 
-  '@vitest/utils@4.0.18':
-    resolution: {integrity: sha512-msMRKLMVLWygpK3u2Hybgi4MNjcYJvwTb0Ru09+fOyCXIgT5raYP041DRRdiJiI3k/2U6SEbAETB3YtBrUkCFA==}
+  '@vitest/utils@4.1.0':
+    resolution: {integrity: sha512-XfPXT6a8TZY3dcGY8EdwsBulFCIw+BeeX0RZn2x/BtiY/75YGh8FeWGG8QISN/WhaqSrE2OrlDgtF8q5uhOTmw==}
 
   '@voidzero-dev/vite-plus-core@0.1.11':
     resolution: {integrity: sha512-feyYRSg3u8acYNC1fF4EGfgYZm2efZB8YWTjz4NrU0Ulhlni1C6COMwHSDVpu9F4Jh+WcSsBWL3ZC1WvLa7jCw==}
@@ -2288,8 +2288,8 @@ packages:
     resolution: {integrity: sha512-x1FCFnFifvYDDzTaLII71vG5uvDwgtmDTEVWAxrgeiR8VjMONcCXJx7E+USjDtHlwFmt9MysbqgF9b9Vjr6w+w==}
     engines: {node: '>=4'}
 
-  ast-v8-to-istanbul@0.3.12:
-    resolution: {integrity: sha512-BRRC8VRZY2R4Z4lFIL35MwNXmwVqBityvOIwETtsCSwvjl0IdgFsy9NhdaA6j74nUdtJJlIypeRhpDam19Wq3g==}
+  ast-v8-to-istanbul@1.0.0:
+    resolution: {integrity: sha512-1fSfIwuDICFA4LKkCzRPO7F0hzFf0B7+Xqrl27ynQaa+Rh0e1Es0v6kWHPott3lU10AyAr7oKHa65OppjLn3Rg==}
 
   b4a@1.8.0:
     resolution: {integrity: sha512-qRuSmNSkGQaHwNbM7J78Wwy+ghLEYF1zNrSeMxj4Kgw6y33O3mXcQ6Ie9fRvfU/YnxWkOchPXbaLb73TkIsfdg==}
@@ -2542,6 +2542,9 @@ packages:
     resolution: {integrity: sha512-20pyHgnO40rvfI0NGF/xiEoFMkXDtkF8FwHvk5BokoFoCuTQRI8vrNCNFWUOfuolKJMm1tPCHc8GgYEtr1XRNA==}
     engines: {node: '>=18'}
     hasBin: true
+
+  convert-source-map@2.0.0:
+    resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -2805,8 +2808,8 @@ packages:
     resolution: {integrity: sha512-afd4O7zpqHeRyg4PfDQsXmlDe2PfdHtJt6Akt8jOWaApLOZk5JXs6VMR29lz03pRe9mpykrRCYIYxaJYcfpncQ==}
     engines: {node: '>=18'}
 
-  flatted@3.3.3:
-    resolution: {integrity: sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==}
+  flatted@3.4.0:
+    resolution: {integrity: sha512-kC6Bb+ooptOIvWj5B63EQWkF0FEnNjV2ZNkLMLZRDDduIiWeFF4iKnslwhiWxjAdbg4NzTNo6h0qLuvFrcx+Sw==}
 
   fs-extra@11.3.3:
     resolution: {integrity: sha512-VWSRii4t0AFm6ixFFmLLx1t7wS1gh+ckoa84aOeapGum0h+EZd1EhEumSB+ZdDLnEPuucsVB9oB7cxJHap6Afg==}
@@ -3774,9 +3777,6 @@ packages:
   statuses@1.5.0:
     resolution: {integrity: sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==}
     engines: {node: '>= 0.6'}
-
-  std-env@3.10.0:
-    resolution: {integrity: sha512-5GS12FdOZNliM5mAOxFRg7Ir0pWz8MdpYm6AY6VPkGpbA7ZzmbzNcBJQ0GPvvyWgcY7QAhCgf9Uy89I03faLkg==}
 
   std-env@4.0.0:
     resolution: {integrity: sha512-zUMPtQ/HBY3/50VbpkupYHbRroTRZJPRLvreamgErJVys0ceuzMkD44J/QjqhHjOzK42GQ3QZIeFG1OYfOtKqQ==}
@@ -5022,38 +5022,39 @@ snapshots:
       vite: '@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)'
       vue: link:packages/vue
 
-  '@vitest/coverage-v8@4.0.18(@voidzero-dev/vite-plus-test@0.1.11)':
+  '@vitest/coverage-v8@4.1.0(@voidzero-dev/vite-plus-test@0.1.11)':
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
-      '@vitest/utils': 4.0.18
-      ast-v8-to-istanbul: 0.3.12
+      '@vitest/utils': 4.1.0
+      ast-v8-to-istanbul: 1.0.0
       istanbul-lib-coverage: 3.2.2
       istanbul-lib-report: 3.0.1
       istanbul-reports: 3.2.0
       magicast: 0.5.2
       obug: 2.1.1
-      std-env: 3.10.0
+      std-env: 4.0.0
       tinyrainbow: 3.0.3
-      vitest: '@voidzero-dev/vite-plus-test@0.1.11(@types/node@24.10.13)(@vitest/ui@4.0.18)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)'
+      vitest: '@voidzero-dev/vite-plus-test@0.1.11(@types/node@24.10.13)(@vitest/ui@4.1.0)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)'
 
-  '@vitest/pretty-format@4.0.18':
+  '@vitest/pretty-format@4.1.0':
     dependencies:
       tinyrainbow: 3.0.3
 
-  '@vitest/ui@4.0.18(@voidzero-dev/vite-plus-test@0.1.11)':
+  '@vitest/ui@4.1.0(@voidzero-dev/vite-plus-test@0.1.11)':
     dependencies:
-      '@vitest/utils': 4.0.18
+      '@vitest/utils': 4.1.0
       fflate: 0.8.2
-      flatted: 3.3.3
+      flatted: 3.4.0
       pathe: 2.0.3
       sirv: 3.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vitest: '@voidzero-dev/vite-plus-test@0.1.11(@types/node@24.10.13)(@vitest/ui@4.0.18)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)'
+      vitest: '@voidzero-dev/vite-plus-test@0.1.11(@types/node@24.10.13)(@vitest/ui@4.1.0)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)'
 
-  '@vitest/utils@4.0.18':
+  '@vitest/utils@4.1.0':
     dependencies:
-      '@vitest/pretty-format': 4.0.18
+      '@vitest/pretty-format': 4.1.0
+      convert-source-map: 2.0.0
       tinyrainbow: 3.0.3
 
   '@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)':
@@ -5082,7 +5083,7 @@ snapshots:
   '@voidzero-dev/vite-plus-linux-x64-gnu@0.1.11':
     optional: true
 
-  '@voidzero-dev/vite-plus-test@0.1.11(@types/node@24.10.13)(@vitest/ui@4.0.18)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)':
+  '@voidzero-dev/vite-plus-test@0.1.11(@types/node@24.10.13)(@vitest/ui@4.1.0)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)':
     dependencies:
       '@standard-schema/spec': 1.1.0
       '@types/chai': 5.2.3
@@ -5100,7 +5101,7 @@ snapshots:
       ws: 8.19.0
     optionalDependencies:
       '@types/node': 24.10.13
-      '@vitest/ui': 4.0.18(@voidzero-dev/vite-plus-test@0.1.11)
+      '@vitest/ui': 4.1.0(@voidzero-dev/vite-plus-test@0.1.11)
       jsdom: 27.4.0
     transitivePeerDependencies:
       - '@arethetypeswrong/core'
@@ -5276,7 +5277,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  ast-v8-to-istanbul@0.3.12:
+  ast-v8-to-istanbul@1.0.0:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       estree-walker: 3.0.3
@@ -5550,6 +5551,8 @@ snapshots:
   conventional-commits-parser@6.2.1:
     dependencies:
       meow: 13.2.0
+
+  convert-source-map@2.0.0: {}
 
   core-util-is@1.0.3: {}
 
@@ -5835,7 +5838,7 @@ snapshots:
 
   find-up-simple@1.0.1: {}
 
-  flatted@3.3.3: {}
+  flatted@3.4.0: {}
 
   fs-extra@11.3.3:
     dependencies:
@@ -6965,8 +6968,6 @@ snapshots:
 
   statuses@1.5.0: {}
 
-  std-env@3.10.0: {}
-
   std-env@4.0.0: {}
 
   streamx@2.23.0:
@@ -7186,11 +7187,11 @@ snapshots:
       - rollup
       - supports-color
 
-  vite-plus@0.1.11(@types/node@24.10.13)(@vitest/ui@4.0.18)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2):
+  vite-plus@0.1.11(@types/node@24.10.13)(@vitest/ui@4.1.0)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2):
     dependencies:
       '@oxc-project/types': 0.115.0
       '@voidzero-dev/vite-plus-core': 0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)
-      '@voidzero-dev/vite-plus-test': 0.1.11(@types/node@24.10.13)(@vitest/ui@4.0.18)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)
+      '@voidzero-dev/vite-plus-test': 0.1.11(@types/node@24.10.13)(@vitest/ui@4.1.0)(@voidzero-dev/vite-plus-core@0.1.11(@types/node@24.10.13)(esbuild@0.27.3)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2))(esbuild@0.27.3)(jsdom@27.4.0)(sass@1.97.3)(typescript@5.6.3)(yaml@2.8.2)
       cac: 6.7.14
       cross-spawn: 7.0.6
       oxfmt: 0.40.0
