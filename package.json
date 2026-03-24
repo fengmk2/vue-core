@@ -88,7 +88,7 @@
     "tslib": "^2.8.1",
     "typescript": "~5.6.2",
     "vite": "catalog:",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@latest",
-    "vite-plus": "^0.1.9"
+    "vitest": "npm:@voidzero-dev/vite-plus-test@0.1.14-alpha.3",
+    "vite-plus": "0.1.14-alpha.3"
   }
 }
