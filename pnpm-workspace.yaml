@@ -7,7 +7,7 @@ catalog:
   '@babel/types': ^7.29.0
   'entities': '^7.0.1'
   'estree-walker': ^2.0.2
-  'vite': npm:@voidzero-dev/vite-plus-core@latest
+  'vite': npm:@voidzero-dev/vite-plus-core@0.1.15-alpha.7
   '@vitejs/plugin-vue': ^6.0.5
   'magic-string': ^0.30.21
   'source-map-js': ^1.2.1
