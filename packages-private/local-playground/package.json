@@ -9,14 +9,14 @@
     "preview": "pnpm run build && vite preview -c vite.prod.config.ts"
   },
   "dependencies": {
-    "@vueuse/core": "^11.1.0",
+    "@vueuse/core": "^11.3.0",
     "vue": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "catalog:",
     "@vue/compiler-sfc": "workspace:*",
     "vite": "catalog:",
-    "vite-hyper-config": "^0.4.0",
-    "vite-plugin-inspect": "^0.8.7"
+    "vite-hyper-config": "^0.4.1",
+    "vite-plugin-inspect": "^0.8.9"
   }
 }

@@ -55,7 +55,8 @@
     "@babel/parser": "catalog:",
     "entities": "catalog:",
     "estree-walker": "catalog:",
-    "source-map-js": "catalog:"
+    "source-map-js": "catalog:",
+    "vue": "workspace:*"
   },
   "peerDependencies": {
     "vue": "workspace:*"
