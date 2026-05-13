@@ -30,4 +30,4 @@ peerDependencyRules:
     '@typescript-eslint/utils>eslint': '^9.0.0'
 minimumReleaseAgeExclude:
   - vite-plus
-  - "@voidzero-dev/*"
+  - '@voidzero-dev/*'
