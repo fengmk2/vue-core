@@ -88,7 +88,7 @@
     "tslib": "^2.8.1",
     "typescript": "~5.6.2",
     "vite": "catalog:",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@latest",
-    "vite-plus": "^0.1.22"
+    "vitest": "^4.1.5",
+    "vite-plus": "https://pkg.pr.new/voidzero-dev/vite-plus@1588"
   }
 }
