@@ -7,10 +7,15 @@ catalog:
   '@babel/types': ^7.29.7
   'entities': '^7.0.1'
   'estree-walker': ^2.0.2
-  'vite': npm:@voidzero-dev/vite-plus-core@latest
+  'vite': npm:@voidzero-dev/vite-plus-core@0.0.0-commit.63f877e809ba7f246ada990e86d87b4330e37ec5
   '@vitejs/plugin-vue': ^6.0.7
   'magic-string': ^0.30.21
   'source-map-js': ^1.2.1
+  vitest: 4.1.9
+  vite-plus: 0.0.0-commit.63f877e809ba7f246ada990e86d87b4330e37ec5
+  '@vitest/browser-playwright': 4.1.9
+  '@vitest/coverage-v8': 4.1.9
+  '@vitest/ui': 4.1.9
 
 allowBuilds:
   '@parcel/watcher': true
@@ -30,5 +35,24 @@ peerDependencyRules:
     '@typescript-eslint/parser>eslint': '^9.0.0'
     '@typescript-eslint/type-utils>eslint': '^9.0.0'
     '@typescript-eslint/utils>eslint': '^9.0.0'
+    vite: '*'
+    vitest: '*'
+  allowAny:
+    - vite
+    - vitest
 
 minimumReleaseAge: 1440
+overrides:
+  vite: 'catalog:'
+  vitest: 'catalog:'
+minimumReleaseAgeExclude:
+  - vite-plus
+  - '@voidzero-dev/*'
+  - oxlint
+  - '@oxlint/*'
+  - oxlint-tsgolint
+  - '@oxlint-tsgolint/*'
+  - oxfmt
+  - '@oxfmt/*'
+  - vitest
+  - '@vitest/*'
