@@ -6,7 +6,7 @@ import {
   withVaporDirectives,
 } from '../../src'
 import { nextTick, watchEffect } from '@vue/runtime-dom'
-import type { Mock } from 'vitest'
+import type { Mock } from 'vite-plus/test'
 
 describe('custom directive', () => {
   it('should work', async () => {

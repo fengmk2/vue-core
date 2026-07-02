@@ -56,8 +56,8 @@
     "@types/node": "^24.13.1",
     "@types/semver": "^7.7.1",
     "@types/serve-handler": "^6.1.4",
-    "@vitest/coverage-v8": "^4.1.8",
-    "@vitest/ui": "^4.1.8",
+    "@vitest/coverage-v8": "catalog:",
+    "@vitest/ui": "catalog:",
     "@vue/consolidate": "1.0.0",
     "conventional-changelog": "^7.2.0",
     "conventional-changelog-angular": "^8.3.1",
@@ -88,7 +88,8 @@
     "tslib": "^2.8.1",
     "typescript": "~5.6.2",
     "vite": "catalog:",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@0.1.22",
-    "vite-plus": "^0.1.22"
+    "vitest": "catalog:",
+    "vite-plus": "catalog:",
+    "@vitest/browser-playwright": "catalog:"
   }
 }
