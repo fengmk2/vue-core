@@ -1,3 +1,21 @@
+minimumReleaseAge: 1440
+minimumReleaseAgeExclude:
+  - vite-plus
+  - '@voidzero-dev/*'
+  - '@oxc-project/*'
+  - '@oxlint/*'
+  - '@oxfmt/*'
+  - '@oxlint-tsgolint/*'
+  - '@rolldown/*'
+  - '@tsdown/*'
+  - oxlint
+  - oxfmt
+  - oxlint-tsgolint
+  - tsdown
+  - rolldown
+  - vitest
+  - '@vitest/*'
+  - es-module-lexer
 packages:
   - 'packages/*'
   - 'packages-private/*'
@@ -7,10 +25,15 @@ catalog:
   '@babel/types': ^7.29.7
   'entities': '^7.0.1'
   'estree-walker': ^2.0.2
-  'vite': npm:@voidzero-dev/vite-plus-core@latest
+  'vite': npm:@voidzero-dev/vite-plus-core@0.0.0-commit.1d7ba811f0e456640b0e761e8e8acf77d1ad3251
   '@vitejs/plugin-vue': ^6.0.7
   'magic-string': ^0.30.21
   'source-map-js': ^1.2.1
+  vitest: 4.1.9
+  vite-plus: 0.0.0-commit.1d7ba811f0e456640b0e761e8e8acf77d1ad3251
+  '@vitest/browser-playwright': 4.1.9
+  '@vitest/coverage-v8': 4.1.9
+  '@vitest/ui': 4.1.9
 
 allowBuilds:
   '@parcel/watcher': true
@@ -30,5 +53,12 @@ peerDependencyRules:
     '@typescript-eslint/parser>eslint': '^9.0.0'
     '@typescript-eslint/type-utils>eslint': '^9.0.0'
     '@typescript-eslint/utils>eslint': '^9.0.0'
+    vite: '*'
+    vitest: '*'
+  allowAny:
+    - vite
+    - vitest
 
-minimumReleaseAge: 1440
+overrides:
+  vite: 'catalog:'
+  vitest: 'catalog:'
