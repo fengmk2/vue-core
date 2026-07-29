@@ -1,5 +1,5 @@
 import { configDefaults } from 'vitest/config'
-import { playwright } from 'vitest/browser-playwright'
+import { playwright } from '@vitest/browser-playwright'
 import { defineConfig } from 'vite-plus'
 import { entries } from './scripts/aliases.js'
 
