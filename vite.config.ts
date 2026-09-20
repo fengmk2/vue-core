@@ -25,14 +25,6 @@ export default defineConfig({
     alias: entries,
   },
   test: {
-    // Vitest v4 compatibility: preserve mock call history.
-    // Remove after tests no longer rely on calls from setup or earlier tests.
-    // https://vitest.dev/guide/migration/#clearmocks-is-enabled-by-default
-    clearMocks: false,
-    // Vitest v4 compatibility: keep separate Vite servers for inline projects.
-    // Remove when plugins and config hooks can run once for shared projects.
-    // https://vitest.dev/guide/migration/#inline-projects-share-the-vite-server-by-default
-    sharedViteServer: false,
     globals: true,
     pool: 'threads',
     setupFiles: 'scripts/setup-vitest.ts',
@@ -121,12 +113,6 @@ export default defineConfig({
           name: 'bench-browser',
           include: [],
           browser: {
-            locators: {
-              // Vitest v4 compatibility: keep partial, case-insensitive locator matching.
-              // Remove after updating locators for full, case-sensitive matches.
-              // https://vitest.dev/guide/migration/#locators-are-strict-by-default
-              exact: false,
-            },
             enabled: true,
             provider: playwright({
               launchOptions: {
@@ -169,12 +155,6 @@ export default defineConfig({
             'packages/vue/__tests__/e2e/TransitionGroup.spec.ts',
           ],
           browser: {
-            locators: {
-              // Vitest v4 compatibility: keep partial, case-insensitive locator matching.
-              // Remove after updating locators for full, case-sensitive matches.
-              // https://vitest.dev/guide/migration/#locators-are-strict-by-default
-              exact: false,
-            },
             enabled: true,
             provider: playwright({
               launchOptions: {
@@ -211,12 +191,6 @@ export default defineConfig({
                 name: 'e2e-vapor',
                 setupFiles: ['./__tests__/setupBrowser.ts'],
                 browser: {
-                  locators: {
-                    // Vitest v4 compatibility: keep partial, case-insensitive locator matching.
-                    // Remove after updating locators for full, case-sensitive matches.
-                    // https://vitest.dev/guide/migration/#locators-are-strict-by-default
-                    exact: false,
-                  },
                   enabled: true,
                   provider: playwright({
                     launchOptions: {
