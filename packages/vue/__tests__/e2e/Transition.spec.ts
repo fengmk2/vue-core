@@ -1628,14 +1628,17 @@ describe('e2e: Transition', () => {
     )
 
     // #10827
-    test(
-      'switch and update child then update include (out-in mode)',
-      async () => {
+    test.each([0, 100])(
+      'switch and update child then update include (out-in mode, animation delay: %i ms)',
+      async animationDelay => {
         const onUnmountedSpyB = vi.fn()
         await page().exposeFunction('onUnmountedSpyB', onUnmountedSpyB)
 
-        await page().evaluate(() => {
+        await page().evaluate(animationDelay => {
           const { onUnmountedSpyB } = window as any
+          const style = document.createElement('style')
+          style.textContent = `#container > div { animation-delay: ${animationDelay}ms; }`
+          document.head.appendChild(style)
           const {
             createApp,
             ref,
@@ -1690,20 +1693,20 @@ describe('e2e: Transition', () => {
               return { current, switchToB, switchToA, includeRef }
             },
           }).mount('#app')
-        })
+        }, animationDelay)
 
         await transitionFinish()
         expect(await html('#container')).toBe('<div>CompA</div>')
 
         await click('#switchToB')
-        await transitionFinish()
-        await transitionFinish()
-        expect(await html('#container')).toBe('<div class="">CompB</div>')
+        await expect
+          .poll(() => html('#container'))
+          .toBe('<div class="">CompB</div>')
 
         await click('#switchToA')
-        await transitionFinish()
-        await transitionFinish()
-        expect(await html('#container')).toBe('<div class="">CompA</div>')
+        await expect
+          .poll(() => html('#container'))
+          .toBe('<div class="">CompA</div>')
 
         expect(onUnmountedSpyB).toBeCalledTimes(1)
       },
