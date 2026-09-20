@@ -2890,4 +2890,10 @@ describe('defineVaporCustomElement', () => {
     expect(container.textContent).toBe('number/true')
     app.unmount()
   })
+
+  afterAll(async () => {
+    document.body.replaceChildren()
+    // Flush custom element unmounts before jsdom removes the DOM globals.
+    await nextTick()
+  })
 })

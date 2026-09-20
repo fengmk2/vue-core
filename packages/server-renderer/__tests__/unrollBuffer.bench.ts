@@ -1,4 +1,5 @@
-import { bench, describe } from 'vite-plus/test'
+import { runBenchmark } from '../../../scripts/bench'
+import { describe, test } from 'vite-plus/test'
 
 import { type SSRBuffer, createBuffer } from '../src/render'
 import { unrollBuffer as _unrollBuffer } from '../src/renderToString'
@@ -50,29 +51,34 @@ function createMixedBuffer(levels: number, itemsPerLevel: number): SSRBuffer {
 
 describe('unrollBuffer', () => {
   let syncBuffer = createBuffer().getBuffer()
-  let mixedBuffer = createBuffer().getBuffer()
+  // Tinybench probes the workload before setup to detect asynchronous work.
+  let mixedBuffer = createMixedBuffer(5, 3)
 
-  bench(
-    'sync',
-    () => {
-      return unrollBuffer(syncBuffer) as any
-    },
-    {
-      setup() {
-        syncBuffer = createSyncBuffer(5, 3)
+  test('sync', async ({ bench, task }) => {
+    await runBenchmark(
+      { bench, task },
+      () => {
+        return unrollBuffer(syncBuffer) as any
       },
-    },
-  )
+      {
+        setup() {
+          syncBuffer = createSyncBuffer(5, 3)
+        },
+      },
+    )
+  })
 
-  bench(
-    'mixed',
-    () => {
-      return unrollBuffer(mixedBuffer) as any
-    },
-    {
-      setup() {
-        mixedBuffer = createMixedBuffer(5, 3)
+  test('mixed', async ({ bench, task }) => {
+    await runBenchmark(
+      { bench, task },
+      () => {
+        return unrollBuffer(mixedBuffer) as any
       },
-    },
-  )
+      {
+        setup() {
+          mixedBuffer = createMixedBuffer(5, 3)
+        },
+      },
+    )
+  })
 })

@@ -1,4 +1,5 @@
-import { bench, describe } from 'vite-plus/test'
+import { benchmarkOptions } from '../../../../scripts/bench'
+import { describe, test } from 'vite-plus/test'
 import { createVaporApp, createVaporSSRApp } from '../../src'
 import { type HydrationFixture, fixtures } from './hydration.fixtures'
 
@@ -20,7 +21,7 @@ import { type HydrationFixture, fixtures } from './hydration.fixtures'
  * into mismatch recovery) live in `hydration.fixtures.ts`.
  *
  * Run prod-like (mismatch checks and dev anchor labels compiled out) with:
- *   MODE=benchmark npx vp test bench --project=bench-browser --run
+ *   MODE=benchmark pnpm exec vp test bench --project='bench-browser*' --run
  *
  * Each iteration builds and tears down a whole app, so the tail is GC-bound;
  * at vitest's default 500ms two runs of identical code differed by up to 18%.
@@ -29,7 +30,7 @@ import { type HydrationFixture, fixtures } from './hydration.fixtures'
  * Compare `mean`, and treat anything under ~5% as noise.
  */
 
-const OPTIONS = { time: 2000, warmupTime: 500 }
+const OPTIONS = { ...benchmarkOptions, time: 2000, warmupTime: 500 }
 
 function prototype(f: HydrationFixture): HTMLElement {
   const proto = document.createElement('div')
@@ -47,31 +48,29 @@ for (const fixture of fixtures) {
   }
 
   describe(fixture.name, () => {
-    bench(
-      'hydrate',
-      () => {
+    test('hydrate', async ({ bench }) => {
+      await bench('hydrate', () => {
         const container = prepare()
         const app = createVaporSSRApp(fixture.comp)
         app.mount(container)
         app.unmount()
         container.remove()
-      },
-      OPTIONS,
-    )
+      }).run(OPTIONS)
+    })
 
-    bench('clone only', () => prepare().remove(), OPTIONS)
+    test('clone only', async ({ bench }) => {
+      await bench('clone only', () => prepare().remove()).run(OPTIONS)
+    })
 
-    bench(
-      'client render',
-      () => {
+    test('client render', async ({ bench }) => {
+      await bench('client render', () => {
         const container = document.createElement('div')
         document.body.appendChild(container)
         const app = createVaporApp(fixture.comp)
         app.mount(container)
         app.unmount()
         container.remove()
-      },
-      OPTIONS,
-    )
+      }).run(OPTIONS)
+    })
   })
 }
