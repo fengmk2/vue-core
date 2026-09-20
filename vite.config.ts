@@ -31,6 +31,11 @@ export default defineConfig({
     sequence: {
       hooks: 'list',
     },
+    benchmark: {
+      // Keep the existing workloads without treating Vitest's export getter
+      // diagnostics as unexpected Vue warnings in the shared setup file.
+      suppressExportGetterWarnings: true,
+    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
@@ -67,6 +72,12 @@ export default defineConfig({
         extends: true,
         test: {
           name: 'unit',
+          benchmark: {
+            exclude: [
+              ...configDefaults.exclude,
+              'packages/runtime-vapor/__tests__/bench/**',
+            ],
+          },
           exclude: [
             ...configDefaults.exclude,
             'packages/reactivity/__tests__/gc.spec.ts',
@@ -91,6 +102,13 @@ export default defineConfig({
       },
       {
         extends: true,
+        optimizeDeps: {
+          // Discover benchmark dependencies before the browser starts the tests.
+          entries: [
+            'packages/runtime-vapor/__tests__/bench/*.bench.ts',
+            'packages/compiler-core/src/index.ts',
+          ],
+        },
         test: {
           name: 'bench-browser',
           include: [],

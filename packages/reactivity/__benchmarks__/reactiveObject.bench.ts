@@ -1,36 +1,47 @@
-import { bench } from 'vite-plus/test'
+import { runBenchmark } from '../../../scripts/bench'
+import { test } from 'vite-plus/test'
 import { reactive } from '../dist/reactivity.esm-browser.prod'
 
-bench('create reactive obj', () => {
-  reactive({ a: 1 })
+test('create reactive obj', async ({ bench, task }) => {
+  await runBenchmark({ bench, task }, () => {
+    reactive({ a: 1 })
+  })
 })
 
 {
   const raw = { a: 1 }
   reactive(raw)
-  bench('return cached reactive obj', () => {
-    reactive(raw)
+  test('return cached reactive obj', async ({ bench, task }) => {
+    await runBenchmark({ bench, task }, () => {
+      reactive(raw)
+    })
   })
 }
 
 {
   const r = reactive({ a: 1 })
-  bench('read reactive obj property', () => {
-    r.a
+  test('read reactive obj property', async ({ bench, task }) => {
+    await runBenchmark({ bench, task }, () => {
+      r.a
+    })
   })
 }
 
 {
   const r = reactive({ a: { b: 1 } })
-  bench('read nested reactive obj property', () => {
-    r.a.b
+  test('read nested reactive obj property', async ({ bench, task }) => {
+    await runBenchmark({ bench, task }, () => {
+      r.a.b
+    })
   })
 }
 
 {
   let i = 0
   const r = reactive({ a: 1 })
-  bench('write reactive obj property', () => {
-    r.a = i++
+  test('write reactive obj property', async ({ bench, task }) => {
+    await runBenchmark({ bench, task }, () => {
+      r.a = i++
+    })
   })
 }

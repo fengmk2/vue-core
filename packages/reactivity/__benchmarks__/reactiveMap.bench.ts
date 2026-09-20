@@ -1,4 +1,5 @@
-import { bench } from 'vite-plus/test'
+import { runBenchmark } from '../../../scripts/bench'
+import { test } from 'vite-plus/test'
 import type { ComputedRef } from '../src'
 import { computed, reactive } from '../dist/reactivity.esm-browser.prod'
 
@@ -12,15 +13,19 @@ function createMap(obj: Record<string, any>) {
   return map
 }
 
-bench('create reactive map', () => {
-  reactive(createMap({ a: 1 }))
+test('create reactive map', async ({ bench, task }) => {
+  await runBenchmark({ bench, task }, () => {
+    reactive(createMap({ a: 1 }))
+  })
 })
 
 {
   let i = 0
   const r = reactive(createMap({ a: 1 }))
-  bench('write reactive map property', () => {
-    r.set('a', i++)
+  test('write reactive map property', async ({ bench, task }) => {
+    await runBenchmark({ bench, task }, () => {
+      r.set('a', i++)
+    })
   })
 }
 
@@ -30,8 +35,13 @@ bench('create reactive map', () => {
     return r.get('a') * 2
   })
   let i = 0
-  bench("write reactive map, don't read computed (never invoked)", () => {
-    r.set('a', i++)
+  test("write reactive map, don't read computed (never invoked)", async ({
+    bench,
+    task,
+  }) => {
+    await runBenchmark({ bench, task }, () => {
+      r.set('a', i++)
+    })
   })
 }
 
@@ -42,8 +52,13 @@ bench('create reactive map', () => {
   })
   c.value
   let i = 0
-  bench("write reactive map, don't read computed (invoked)", () => {
-    r.set('a', i++)
+  test("write reactive map, don't read computed (invoked)", async ({
+    bench,
+    task,
+  }) => {
+    await runBenchmark({ bench, task }, () => {
+      r.set('a', i++)
+    })
   })
 }
 
@@ -53,9 +68,11 @@ bench('create reactive map', () => {
     return r.get('a') * 2
   })
   let i = 0
-  bench('write reactive map, read computed', () => {
-    r.set('a', i++)
-    c.value
+  test('write reactive map, read computed', async ({ bench, task }) => {
+    await runBenchmark({ bench, task }, () => {
+      r.set('a', i++)
+      c.value
+    })
   })
 }
 
@@ -72,9 +89,14 @@ bench('create reactive map', () => {
     })
     return total
   })
-  bench("write reactive map (10'000 items), read computed", () => {
-    r.set(5000, r.get(5000) + 1)
-    c.value
+  test("write reactive map (10'000 items), read computed", async ({
+    bench,
+    task,
+  }) => {
+    await runBenchmark({ bench, task }, () => {
+      r.set(5000, r.get(5000) + 1)
+      c.value
+    })
   })
 }
 
@@ -88,8 +110,13 @@ bench('create reactive map', () => {
     computeds.push(c)
   }
   let i = 0
-  bench("write reactive map, don't read 1000 computeds (never invoked)", () => {
-    r.set('a', i++)
+  test("write reactive map, don't read 1000 computeds (never invoked)", async ({
+    bench,
+    task,
+  }) => {
+    await runBenchmark({ bench, task }, () => {
+      r.set('a', i++)
+    })
   })
 }
 
@@ -104,8 +131,13 @@ bench('create reactive map', () => {
     computeds.push(c)
   }
   let i = 0
-  bench("write reactive map, don't read 1000 computeds (invoked)", () => {
-    r.set('a', i++)
+  test("write reactive map, don't read 1000 computeds (invoked)", async ({
+    bench,
+    task,
+  }) => {
+    await runBenchmark({ bench, task }, () => {
+      r.set('a', i++)
+    })
   })
 }
 
@@ -119,9 +151,11 @@ bench('create reactive map', () => {
     computeds.push(c)
   }
   let i = 0
-  bench('write reactive map, read 1000 computeds', () => {
-    r.set('a', i++)
-    computeds.forEach(c => c.value)
+  test('write reactive map, read 1000 computeds', async ({ bench, task }) => {
+    await runBenchmark({ bench, task }, () => {
+      r.set('a', i++)
+      computeds.forEach(c => c.value)
+    })
   })
 }
 
@@ -137,8 +171,10 @@ bench('create reactive map', () => {
   })
   let i = 0
   const n = reactives.length
-  bench('1000 reactive maps, 1 computed', () => {
-    reactives[i++ % n].set('a', reactives[i++ % n].get('a') + 1)
-    c.value
+  test('1000 reactive maps, 1 computed', async ({ bench, task }) => {
+    await runBenchmark({ bench, task }, () => {
+      reactives[i++ % n].set('a', reactives[i++ % n].get('a') + 1)
+      c.value
+    })
   })
 }
