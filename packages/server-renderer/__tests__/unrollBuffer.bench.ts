@@ -1,4 +1,4 @@
-import { bench, describe } from 'vite-plus/test'
+import { describe, test } from 'vite-plus/test'
 
 import { type SSRBuffer, createBuffer } from '../src/render'
 import { unrollBuffer as _unrollBuffer } from '../src/renderToString'
@@ -52,27 +52,31 @@ describe('unrollBuffer', () => {
   let syncBuffer = createBuffer().getBuffer()
   let mixedBuffer = createBuffer().getBuffer()
 
-  bench(
-    'sync',
-    () => {
-      return unrollBuffer(syncBuffer) as any
-    },
-    {
-      setup() {
-        syncBuffer = createSyncBuffer(5, 3)
+  test('sync', async ({ bench }) => {
+    await bench(
+      'sync',
+      {
+        beforeEach: () => {
+          syncBuffer = createSyncBuffer(5, 3)
+        },
       },
-    },
-  )
+      () => {
+        return unrollBuffer(syncBuffer) as any
+      },
+    ).run()
+  })
 
-  bench(
-    'mixed',
-    () => {
-      return unrollBuffer(mixedBuffer) as any
-    },
-    {
-      setup() {
-        mixedBuffer = createMixedBuffer(5, 3)
+  test('mixed', async ({ bench }) => {
+    await bench(
+      'mixed',
+      {
+        beforeEach: () => {
+          mixedBuffer = createMixedBuffer(5, 3)
+        },
       },
-    },
-  )
+      async () => {
+        return unrollBuffer(mixedBuffer) as any
+      },
+    ).run()
+  })
 })

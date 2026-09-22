@@ -1,4 +1,4 @@
-import { bench, describe } from 'vite-plus/test'
+import { describe, test } from 'vite-plus/test'
 import { setClass, setClassName } from '../../src/dom/prop'
 
 type TargetElement = HTMLElement & {
@@ -144,60 +144,72 @@ describe('setClass', () => {
     {
       const el = createEmptyEl()
       let i = 0
-      bench('setClass ternary stable', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassTernary1(el, stable2[i++ & 3] & 1)
-        }
+      test('setClass ternary stable', async ({ bench }) => {
+        await bench('setClass ternary stable', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassTernary1(el, stable2[i++ & 3] & 1)
+          }
+        }).run()
       })
     }
 
     {
       const el = createEmptyEl()
       let i = 0
-      bench('setClass object stable', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassObject1(el, stable2[i++ & 3] & 1)
-        }
+      test('setClass object stable', async ({ bench }) => {
+        await bench('setClass object stable', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassObject1(el, stable2[i++ & 3] & 1)
+          }
+        }).run()
       })
     }
 
     {
       const el = createEmptyEl()
       let i = 0
-      bench('setClassName stable', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassName1(el, stable2[i++ & 3] & 1)
-        }
+      test('setClassName stable', async ({ bench }) => {
+        await bench('setClassName stable', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassName1(el, stable2[i++ & 3] & 1)
+          }
+        }).run()
       })
     }
 
     {
       const el = createEmptyEl()
       let i = 0
-      bench('setClass ternary toggles every update', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassTernary1(el, toggle(i++, 1))
-        }
+      test('setClass ternary toggles every update', async ({ bench }) => {
+        await bench('setClass ternary toggles every update', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassTernary1(el, toggle(i++, 1))
+          }
+        }).run()
       })
     }
 
     {
       const el = createEmptyEl()
       let i = 0
-      bench('setClass object toggles every update', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassObject1(el, toggle(i++, 1))
-        }
+      test('setClass object toggles every update', async ({ bench }) => {
+        await bench('setClass object toggles every update', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassObject1(el, toggle(i++, 1))
+          }
+        }).run()
       })
     }
 
     {
       const el = createEmptyEl()
       let i = 0
-      bench('setClassName toggles every update', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassName1(el, toggle(i++, 1))
-        }
+      test('setClassName toggles every update', async ({ bench }) => {
+        await bench('setClassName toggles every update', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassName1(el, toggle(i++, 1))
+          }
+        }).run()
       })
     }
   })
@@ -206,40 +218,48 @@ describe('setClass', () => {
     {
       const el = createEl()
       let i = 0
-      bench('setClass object stable', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassObject1WithBase(el, stable2[i++ & 3] & 1)
-        }
+      test('setClass object stable', async ({ bench }) => {
+        await bench('setClass object stable', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassObject1WithBase(el, stable2[i++ & 3] & 1)
+          }
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClassName stable', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassName1WithBase(el, stable2[i++ & 3] & 1)
-        }
+      test('setClassName stable', async ({ bench }) => {
+        await bench('setClassName stable', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassName1WithBase(el, stable2[i++ & 3] & 1)
+          }
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClass object toggles every update', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassObject1WithBase(el, toggle(i++, 1))
-        }
+      test('setClass object toggles every update', async ({ bench }) => {
+        await bench('setClass object toggles every update', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassObject1WithBase(el, toggle(i++, 1))
+          }
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClassName toggles every update', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassName1WithBase(el, toggle(i++, 1))
-        }
+      test('setClassName toggles every update', async ({ bench }) => {
+        await bench('setClassName toggles every update', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassName1WithBase(el, toggle(i++, 1))
+          }
+        }).run()
       })
     }
   })
@@ -248,60 +268,72 @@ describe('setClass', () => {
     {
       const el = createRootEl()
       let i = 0
-      bench('setClass ternary stable', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassTernary1(el, stable2[i++ & 3] & 1)
-        }
+      test('setClass ternary stable', async ({ bench }) => {
+        await bench('setClass ternary stable', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassTernary1(el, stable2[i++ & 3] & 1)
+          }
+        }).run()
       })
     }
 
     {
       const el = createRootEl()
       let i = 0
-      bench('setClass object stable', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassObject1(el, stable2[i++ & 3] & 1)
-        }
+      test('setClass object stable', async ({ bench }) => {
+        await bench('setClass object stable', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassObject1(el, stable2[i++ & 3] & 1)
+          }
+        }).run()
       })
     }
 
     {
       const el = createRootEl()
       let i = 0
-      bench('setClassName stable', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassName1(el, stable2[i++ & 3] & 1)
-        }
+      test('setClassName stable', async ({ bench }) => {
+        await bench('setClassName stable', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassName1(el, stable2[i++ & 3] & 1)
+          }
+        }).run()
       })
     }
 
     {
       const el = createRootEl()
       let i = 0
-      bench('setClass ternary toggles every update', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassTernary1(el, toggle(i++, 1))
-        }
+      test('setClass ternary toggles every update', async ({ bench }) => {
+        await bench('setClass ternary toggles every update', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassTernary1(el, toggle(i++, 1))
+          }
+        }).run()
       })
     }
 
     {
       const el = createRootEl()
       let i = 0
-      bench('setClass object toggles every update', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassObject1(el, toggle(i++, 1))
-        }
+      test('setClass object toggles every update', async ({ bench }) => {
+        await bench('setClass object toggles every update', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassObject1(el, toggle(i++, 1))
+          }
+        }).run()
       })
     }
 
     {
       const el = createRootEl()
       let i = 0
-      bench('setClassName toggles every update', () => {
-        for (let j = 0; j < BATCH; j++) {
-          currentSetClassName1(el, toggle(i++, 1))
-        }
+      test('setClassName toggles every update', async ({ bench }) => {
+        await bench('setClassName toggles every update', () => {
+          for (let j = 0; j < BATCH; j++) {
+            currentSetClassName1(el, toggle(i++, 1))
+          }
+        }).run()
       })
     }
   })
@@ -310,33 +342,42 @@ describe('setClass', () => {
     {
       const el = createEl()
       let i = 0
-      bench('setClass stable', () => {
-        for (let j = 0; j < BATCH; j++) currentSetClass2(el, stable2[i++ & 3])
+      test('setClass stable', async ({ bench }) => {
+        await bench('setClass stable', () => {
+          for (let j = 0; j < BATCH; j++) currentSetClass2(el, stable2[i++ & 3])
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClassName stable', () => {
-        for (let j = 0; j < BATCH; j++)
-          currentSetClassName2(el, stable2[i++ & 3])
+      test('setClassName stable', async ({ bench }) => {
+        await bench('setClassName stable', () => {
+          for (let j = 0; j < BATCH; j++)
+            currentSetClassName2(el, stable2[i++ & 3])
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClass toggles every update', () => {
-        for (let j = 0; j < BATCH; j++) currentSetClass2(el, toggle(i++, 3))
+      test('setClass toggles every update', async ({ bench }) => {
+        await bench('setClass toggles every update', () => {
+          for (let j = 0; j < BATCH; j++) currentSetClass2(el, toggle(i++, 3))
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClassName toggles every update', () => {
-        for (let j = 0; j < BATCH; j++) currentSetClassName2(el, toggle(i++, 3))
+      test('setClassName toggles every update', async ({ bench }) => {
+        await bench('setClassName toggles every update', () => {
+          for (let j = 0; j < BATCH; j++)
+            currentSetClassName2(el, toggle(i++, 3))
+        }).run()
       })
     }
   })
@@ -345,51 +386,63 @@ describe('setClass', () => {
     {
       const el = createEl()
       let i = 0
-      bench('setClass stable', () => {
-        for (let j = 0; j < BATCH; j++) currentSetClass4(el, stable4[i++ & 3])
+      test('setClass stable', async ({ bench }) => {
+        await bench('setClass stable', () => {
+          for (let j = 0; j < BATCH; j++) currentSetClass4(el, stable4[i++ & 3])
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClassName stable', () => {
-        for (let j = 0; j < BATCH; j++)
-          currentSetClassName4(el, stable4[i++ & 3])
+      test('setClassName stable', async ({ bench }) => {
+        await bench('setClassName stable', () => {
+          for (let j = 0; j < BATCH; j++)
+            currentSetClassName4(el, stable4[i++ & 3])
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClass toggles every update', () => {
-        for (let j = 0; j < BATCH; j++) currentSetClass4(el, toggle(i++, 15))
+      test('setClass toggles every update', async ({ bench }) => {
+        await bench('setClass toggles every update', () => {
+          for (let j = 0; j < BATCH; j++) currentSetClass4(el, toggle(i++, 15))
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClassName toggles every update', () => {
-        for (let j = 0; j < BATCH; j++)
-          currentSetClassName4(el, toggle(i++, 15))
+      test('setClassName toggles every update', async ({ bench }) => {
+        await bench('setClassName toggles every update', () => {
+          for (let j = 0; j < BATCH; j++)
+            currentSetClassName4(el, toggle(i++, 15))
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClass sparse churn', () => {
-        for (let j = 0; j < BATCH; j++) currentSetClass4(el, sparse(i++, 15))
+      test('setClass sparse churn', async ({ bench }) => {
+        await bench('setClass sparse churn', () => {
+          for (let j = 0; j < BATCH; j++) currentSetClass4(el, sparse(i++, 15))
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClassName sparse churn', () => {
-        for (let j = 0; j < BATCH; j++)
-          currentSetClassName4(el, sparse(i++, 15))
+      test('setClassName sparse churn', async ({ bench }) => {
+        await bench('setClassName sparse churn', () => {
+          for (let j = 0; j < BATCH; j++)
+            currentSetClassName4(el, sparse(i++, 15))
+        }).run()
       })
     }
   })
@@ -398,51 +451,63 @@ describe('setClass', () => {
     {
       const el = createEl()
       let i = 0
-      bench('setClass stable', () => {
-        for (let j = 0; j < BATCH; j++) currentSetClass8(el, stable8[i++ & 3])
+      test('setClass stable', async ({ bench }) => {
+        await bench('setClass stable', () => {
+          for (let j = 0; j < BATCH; j++) currentSetClass8(el, stable8[i++ & 3])
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClassName stable', () => {
-        for (let j = 0; j < BATCH; j++)
-          currentSetClassName8(el, stable8[i++ & 3])
+      test('setClassName stable', async ({ bench }) => {
+        await bench('setClassName stable', () => {
+          for (let j = 0; j < BATCH; j++)
+            currentSetClassName8(el, stable8[i++ & 3])
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClass toggles every update', () => {
-        for (let j = 0; j < BATCH; j++) currentSetClass8(el, toggle(i++, 255))
+      test('setClass toggles every update', async ({ bench }) => {
+        await bench('setClass toggles every update', () => {
+          for (let j = 0; j < BATCH; j++) currentSetClass8(el, toggle(i++, 255))
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClassName toggles every update', () => {
-        for (let j = 0; j < BATCH; j++)
-          currentSetClassName8(el, toggle(i++, 255))
+      test('setClassName toggles every update', async ({ bench }) => {
+        await bench('setClassName toggles every update', () => {
+          for (let j = 0; j < BATCH; j++)
+            currentSetClassName8(el, toggle(i++, 255))
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClass sparse churn', () => {
-        for (let j = 0; j < BATCH; j++) currentSetClass8(el, sparse(i++, 255))
+      test('setClass sparse churn', async ({ bench }) => {
+        await bench('setClass sparse churn', () => {
+          for (let j = 0; j < BATCH; j++) currentSetClass8(el, sparse(i++, 255))
+        }).run()
       })
     }
 
     {
       const el = createEl()
       let i = 0
-      bench('setClassName sparse churn', () => {
-        for (let j = 0; j < BATCH; j++)
-          currentSetClassName8(el, sparse(i++, 255))
+      test('setClassName sparse churn', async ({ bench }) => {
+        await bench('setClassName sparse churn', () => {
+          for (let j = 0; j < BATCH; j++)
+            currentSetClassName8(el, sparse(i++, 255))
+        }).run()
       })
     }
   })

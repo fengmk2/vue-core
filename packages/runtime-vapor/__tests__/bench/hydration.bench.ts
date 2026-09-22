@@ -1,4 +1,4 @@
-import { bench, describe } from 'vite-plus/test'
+import { describe, test } from 'vite-plus/test'
 import { createVaporApp, createVaporSSRApp } from '../../src'
 import { type HydrationFixture, fixtures } from './hydration.fixtures'
 
@@ -47,31 +47,26 @@ for (const fixture of fixtures) {
   }
 
   describe(fixture.name, () => {
-    bench(
-      'hydrate',
-      () => {
-        const container = prepare()
-        const app = createVaporSSRApp(fixture.comp)
-        app.mount(container)
-        app.unmount()
-        container.remove()
-      },
-      OPTIONS,
-    )
-
-    bench('clone only', () => prepare().remove(), OPTIONS)
-
-    bench(
-      'client render',
-      () => {
-        const container = document.createElement('div')
-        document.body.appendChild(container)
-        const app = createVaporApp(fixture.comp)
-        app.mount(container)
-        app.unmount()
-        container.remove()
-      },
-      OPTIONS,
-    )
+    test('hydration benchmarks', async ({ bench }) => {
+      await bench.compare(
+        bench('hydrate', () => {
+          const container = prepare()
+          const app = createVaporSSRApp(fixture.comp)
+          app.mount(container)
+          app.unmount()
+          container.remove()
+        }),
+        bench('clone only', () => prepare().remove()),
+        bench('client render', () => {
+          const container = document.createElement('div')
+          document.body.appendChild(container)
+          const app = createVaporApp(fixture.comp)
+          app.mount(container)
+          app.unmount()
+          container.remove()
+        }),
+        OPTIONS,
+      )
+    })
   })
 }

@@ -25,6 +25,10 @@ export default defineConfig({
     alias: entries,
   },
   test: {
+    benchmark: {
+      // These suites benchmark internal source modules through Vite's module runner.
+      suppressExportGetterWarnings: true,
+    },
     globals: true,
     pool: 'threads',
     setupFiles: 'scripts/setup-vitest.ts',
@@ -67,6 +71,12 @@ export default defineConfig({
         extends: true,
         test: {
           name: 'unit',
+          benchmark: {
+            exclude: [
+              '**/node_modules/**',
+              'packages/runtime-vapor/__tests__/bench/**',
+            ],
+          },
           exclude: [
             ...configDefaults.exclude,
             'packages/reactivity/__tests__/gc.spec.ts',

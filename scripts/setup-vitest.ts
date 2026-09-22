@@ -1,7 +1,10 @@
 import type { MockInstance } from 'vite-plus/test'
 
 declare module 'vitest' {
-  interface Matchers<T = any> extends CustomMatchers<T> {}
+  interface Matchers<
+    R extends void | Promise<void> = void | Promise<void>,
+    T = unknown,
+  > extends CustomMatchers<R> {}
 }
 
 interface CustomMatchers<R = unknown> {

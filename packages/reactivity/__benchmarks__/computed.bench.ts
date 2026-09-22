@@ -1,4 +1,4 @@
-import { bench, describe } from 'vite-plus/test'
+import { describe, test } from 'vite-plus/test'
 import type { ComputedRef, Ref } from '../src'
 import { computed, effect, ref } from '../dist/reactivity.esm-browser.prod'
 
@@ -7,16 +7,22 @@ declare module '../dist/reactivity.esm-browser.prod' {
 }
 
 describe('computed', () => {
-  bench('create computed', () => {
-    computed(() => 100)
+  test('create computed', async ({ bench }) => {
+    await bench('create computed', () => {
+      computed(() => 100)
+    }).run()
   })
 
   {
     const v = ref(100)
     computed(() => v.value * 2)
     let i = 0
-    bench("write ref, don't read computed (without effect)", () => {
-      v.value = i++
+    test("write ref, don't read computed (without effect)", async ({
+      bench,
+    }) => {
+      await bench("write ref, don't read computed (without effect)", () => {
+        v.value = i++
+      }).run()
     })
   }
 
@@ -27,8 +33,10 @@ describe('computed', () => {
     })
     effect(() => c.value)
     let i = 0
-    bench("write ref, don't read computed (with effect)", () => {
-      v.value = i++
+    test("write ref, don't read computed (with effect)", async ({ bench }) => {
+      await bench("write ref, don't read computed (with effect)", () => {
+        v.value = i++
+      }).run()
     })
   }
 
@@ -38,9 +46,11 @@ describe('computed', () => {
       return v.value * 2
     })
     let i = 0
-    bench('write ref, read computed (without effect)', () => {
-      v.value = i++
-      c.value
+    test('write ref, read computed (without effect)', async ({ bench }) => {
+      await bench('write ref, read computed (without effect)', () => {
+        v.value = i++
+        c.value
+      }).run()
     })
   }
 
@@ -51,9 +61,11 @@ describe('computed', () => {
     })
     effect(() => c.value)
     let i = 0
-    bench('write ref, read computed (with effect)', () => {
-      v.value = i++
-      c.value
+    test('write ref, read computed (with effect)', async ({ bench }) => {
+      await bench('write ref, read computed (with effect)', () => {
+        v.value = i++
+        c.value
+      }).run()
     })
   }
 
@@ -67,8 +79,12 @@ describe('computed', () => {
       computeds.push(c)
     }
     let i = 0
-    bench("write ref, don't read 1000 computeds (without effect)", () => {
-      v.value = i++
+    test("write ref, don't read 1000 computeds (without effect)", async ({
+      bench,
+    }) => {
+      await bench("write ref, don't read 1000 computeds (without effect)", () => {
+        v.value = i++
+      }).run()
     })
   }
 
@@ -83,8 +99,12 @@ describe('computed', () => {
       computeds.push(c)
     }
     let i = 0
-    bench("write ref, don't read 1000 computeds (with multiple effects)", () => {
-      v.value = i++
+    test("write ref, don't read 1000 computeds (with multiple effects)", async ({
+      bench,
+    }) => {
+      await bench("write ref, don't read 1000 computeds (with multiple effects)", () => {
+        v.value = i++
+      }).run()
     })
   }
 
@@ -103,8 +123,12 @@ describe('computed', () => {
       }
     })
     let i = 0
-    bench("write ref, don't read 1000 computeds (with single effect)", () => {
-      v.value = i++
+    test("write ref, don't read 1000 computeds (with single effect)", async ({
+      bench,
+    }) => {
+      await bench("write ref, don't read 1000 computeds (with single effect)", () => {
+        v.value = i++
+      }).run()
     })
   }
 
@@ -118,9 +142,11 @@ describe('computed', () => {
       computeds.push(c)
     }
     let i = 0
-    bench('write ref, read 1000 computeds (no effect)', () => {
-      v.value = i++
-      computeds.forEach(c => c.value)
+    test('write ref, read 1000 computeds (no effect)', async ({ bench }) => {
+      await bench('write ref, read 1000 computeds (no effect)', () => {
+        v.value = i++
+        computeds.forEach(c => c.value)
+      }).run()
     })
   }
 
@@ -135,9 +161,13 @@ describe('computed', () => {
       computeds.push(c)
     }
     let i = 0
-    bench('write ref, read 1000 computeds (with multiple effects)', () => {
-      v.value = i++
-      computeds.forEach(c => c.value)
+    test('write ref, read 1000 computeds (with multiple effects)', async ({
+      bench,
+    }) => {
+      await bench('write ref, read 1000 computeds (with multiple effects)', () => {
+        v.value = i++
+        computeds.forEach(c => c.value)
+      }).run()
     })
   }
 
@@ -157,9 +187,13 @@ describe('computed', () => {
       }
     })
     let i = 0
-    bench('write ref, read 1000 computeds (with single effect)', () => {
-      v.value = i++
-      computeds.forEach(c => c.value)
+    test('write ref, read 1000 computeds (with single effect)', async ({
+      bench,
+    }) => {
+      await bench('write ref, read 1000 computeds (with single effect)', () => {
+        v.value = i++
+        computeds.forEach(c => c.value)
+      }).run()
     })
   }
 
@@ -175,9 +209,11 @@ describe('computed', () => {
     })
     let i = 0
     const n = refs.length
-    bench('1000 refs, read 1 computed (without effect)', () => {
-      refs[i++ % n].value++
-      c.value
+    test('1000 refs, read 1 computed (without effect)', async ({ bench }) => {
+      await bench('1000 refs, read 1 computed (without effect)', () => {
+        refs[i++ % n].value++
+        c.value
+      }).run()
     })
   }
 
@@ -194,9 +230,11 @@ describe('computed', () => {
     effect(() => c.value)
     let i = 0
     const n = refs.length
-    bench('1000 refs, read 1 computed (with effect)', () => {
-      refs[i++ % n].value++
-      c.value
+    test('1000 refs, read 1 computed (with effect)', async ({ bench }) => {
+      await bench('1000 refs, read 1 computed (with effect)', () => {
+        refs[i++ % n].value++
+        c.value
+      }).run()
     })
   }
 })
