@@ -1,4 +1,4 @@
-import { bench, describe } from 'vite-plus/test'
+import { describe, test } from 'vite-plus/test'
 import { shallowRef } from '@vue/reactivity'
 import {
   type Block,
@@ -60,74 +60,98 @@ describe('block real DOM ops', () => {
   const slotLikeFragment = createSlotLikeFragment(createText())
   const slotLikeFragmentBlock = createForBlock(slotLikeFragment)
 
-  bench('insert/remove(ForBlock single Node)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      insert(singleNodeBlock, container)
-      remove(singleNodeBlock, container)
-    }
+  test('insert/remove(ForBlock single Node)', async ({ bench }) => {
+    await bench('insert/remove(ForBlock single Node)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        insert(singleNodeBlock, container)
+        remove(singleNodeBlock, container)
+      }
+    }).run()
   })
 
-  bench('insertNode/removeNode(ForBlock.nodes)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      insertNode(singleNodeBlock.nodes as Node, container)
-      removeNode(singleNodeBlock.nodes as Node, container)
-    }
+  test('insertNode/removeNode(ForBlock.nodes)', async ({ bench }) => {
+    await bench('insertNode/removeNode(ForBlock.nodes)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        insertNode(singleNodeBlock.nodes as Node, container)
+        removeNode(singleNodeBlock.nodes as Node, container)
+      }
+    }).run()
   })
 
-  bench('insert/remove(ForBlock component)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      insert(componentBlock, container)
-      remove(componentBlock, container)
-    }
+  test('insert/remove(ForBlock component)', async ({ bench }) => {
+    await bench('insert/remove(ForBlock component)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        insert(componentBlock, container)
+        remove(componentBlock, container)
+      }
+    }).run()
   })
 
-  bench('insert/remove(ForBlock.nodes component)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      insert(componentBlock.nodes, container)
-      remove(componentBlock.nodes, container)
-    }
+  test('insert/remove(ForBlock.nodes component)', async ({ bench }) => {
+    await bench('insert/remove(ForBlock.nodes component)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        insert(componentBlock.nodes, container)
+        remove(componentBlock.nodes, container)
+      }
+    }).run()
   })
 
-  bench('insert/remove(ForBlock component array)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      insert(componentArrayBlock, container)
-      remove(componentArrayBlock, container)
-    }
+  test('insert/remove(ForBlock component array)', async ({ bench }) => {
+    await bench('insert/remove(ForBlock component array)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        insert(componentArrayBlock, container)
+        remove(componentArrayBlock, container)
+      }
+    }).run()
   })
 
-  bench('insert/remove(ForBlock.nodes component array)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      insert(componentArrayBlock.nodes, container)
-      remove(componentArrayBlock.nodes, container)
-    }
+  test('insert/remove(ForBlock.nodes component array)', async ({ bench }) => {
+    await bench('insert/remove(ForBlock.nodes component array)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        insert(componentArrayBlock.nodes, container)
+        remove(componentArrayBlock.nodes, container)
+      }
+    }).run()
   })
 
-  bench('insert/remove(ForBlock fragment)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      insert(fragmentBlock, container)
-      remove(fragmentBlock, container)
-    }
+  test('insert/remove(ForBlock fragment)', async ({ bench }) => {
+    await bench('insert/remove(ForBlock fragment)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        insert(fragmentBlock, container)
+        remove(fragmentBlock, container)
+      }
+    }).run()
   })
 
-  bench('insertFragment/removeFragment(ForBlock.nodes fragment)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      insertFragment(fragmentBlock.nodes as DynamicFragment, container)
-      removeFragment(fragmentBlock.nodes as DynamicFragment, container)
-    }
+  test('insertFragment/removeFragment(ForBlock.nodes fragment)', async ({
+    bench,
+  }) => {
+    await bench('insertFragment/removeFragment(ForBlock.nodes fragment)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        insertFragment(fragmentBlock.nodes as DynamicFragment, container)
+        removeFragment(fragmentBlock.nodes as DynamicFragment, container)
+      }
+    }).run()
   })
 
-  bench('insert/remove(ForBlock slot-like fragment)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      insert(slotLikeFragmentBlock, container)
-      remove(slotLikeFragmentBlock, container)
-    }
+  test('insert/remove(ForBlock slot-like fragment)', async ({ bench }) => {
+    await bench('insert/remove(ForBlock slot-like fragment)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        insert(slotLikeFragmentBlock, container)
+        remove(slotLikeFragmentBlock, container)
+      }
+    }).run()
   })
 
-  bench('insertFragment/removeFragment(ForBlock.nodes slot-like fragment)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      insertFragment(slotLikeFragmentBlock.nodes as VaporFragment, container)
-      removeFragment(slotLikeFragmentBlock.nodes as VaporFragment, container)
-    }
+  test('insertFragment/removeFragment(ForBlock.nodes slot-like fragment)', async ({
+    bench,
+  }) => {
+    await bench('insertFragment/removeFragment(ForBlock.nodes slot-like fragment)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        insertFragment(slotLikeFragmentBlock.nodes as VaporFragment, container)
+        removeFragment(slotLikeFragmentBlock.nodes as VaporFragment, container)
+      }
+    }).run()
   })
 })
 
@@ -149,54 +173,79 @@ describe('block real DOM remove/reinsert ops', () => {
     slotLikeFragmentContainer,
   )
 
-  bench('remove/reinsert(ForBlock single Node)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      remove(singleNodeBlock, singleNodeContainer)
-      insertNode(singleNodeBlock.nodes as Node, singleNodeContainer)
-    }
+  test('remove/reinsert(ForBlock single Node)', async ({ bench }) => {
+    await bench('remove/reinsert(ForBlock single Node)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        remove(singleNodeBlock, singleNodeContainer)
+        insertNode(singleNodeBlock.nodes as Node, singleNodeContainer)
+      }
+    }).run()
   })
 
-  bench('removeNode/reinsert(ForBlock.nodes)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      removeNode(singleNodeBlock.nodes as Node, singleNodeContainer)
-      insertNode(singleNodeBlock.nodes as Node, singleNodeContainer)
-    }
+  test('removeNode/reinsert(ForBlock.nodes)', async ({ bench }) => {
+    await bench('removeNode/reinsert(ForBlock.nodes)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        removeNode(singleNodeBlock.nodes as Node, singleNodeContainer)
+        insertNode(singleNodeBlock.nodes as Node, singleNodeContainer)
+      }
+    }).run()
   })
 
-  bench('remove/reinsert(ForBlock fragment)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      remove(fragmentBlock, fragmentContainer)
-      insertFragment(fragmentBlock.nodes as DynamicFragment, fragmentContainer)
-    }
+  test('remove/reinsert(ForBlock fragment)', async ({ bench }) => {
+    await bench('remove/reinsert(ForBlock fragment)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        remove(fragmentBlock, fragmentContainer)
+        insertFragment(
+          fragmentBlock.nodes as DynamicFragment,
+          fragmentContainer,
+        )
+      }
+    }).run()
   })
 
-  bench('removeFragment/reinsert(ForBlock.nodes fragment)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      removeFragment(fragmentBlock.nodes as DynamicFragment, fragmentContainer)
-      insertFragment(fragmentBlock.nodes as DynamicFragment, fragmentContainer)
-    }
+  test('removeFragment/reinsert(ForBlock.nodes fragment)', async ({
+    bench,
+  }) => {
+    await bench('removeFragment/reinsert(ForBlock.nodes fragment)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        removeFragment(
+          fragmentBlock.nodes as DynamicFragment,
+          fragmentContainer,
+        )
+        insertFragment(
+          fragmentBlock.nodes as DynamicFragment,
+          fragmentContainer,
+        )
+      }
+    }).run()
   })
 
-  bench('remove/reinsert(ForBlock slot-like fragment)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      remove(slotLikeFragmentBlock, slotLikeFragmentContainer)
-      insertFragment(
-        slotLikeFragmentBlock.nodes as VaporFragment,
-        slotLikeFragmentContainer,
-      )
-    }
+  test('remove/reinsert(ForBlock slot-like fragment)', async ({ bench }) => {
+    await bench('remove/reinsert(ForBlock slot-like fragment)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        remove(slotLikeFragmentBlock, slotLikeFragmentContainer)
+        insertFragment(
+          slotLikeFragmentBlock.nodes as VaporFragment,
+          slotLikeFragmentContainer,
+        )
+      }
+    }).run()
   })
 
-  bench('removeFragment/reinsert(ForBlock.nodes slot-like fragment)', () => {
-    for (let i = 0; i < DOM_BATCH; i++) {
-      removeFragment(
-        slotLikeFragmentBlock.nodes as VaporFragment,
-        slotLikeFragmentContainer,
-      )
-      insertFragment(
-        slotLikeFragmentBlock.nodes as VaporFragment,
-        slotLikeFragmentContainer,
-      )
-    }
+  test('removeFragment/reinsert(ForBlock.nodes slot-like fragment)', async ({
+    bench,
+  }) => {
+    await bench('removeFragment/reinsert(ForBlock.nodes slot-like fragment)', () => {
+      for (let i = 0; i < DOM_BATCH; i++) {
+        removeFragment(
+          slotLikeFragmentBlock.nodes as VaporFragment,
+          slotLikeFragmentContainer,
+        )
+        insertFragment(
+          slotLikeFragmentBlock.nodes as VaporFragment,
+          slotLikeFragmentContainer,
+        )
+      }
+    }).run()
   })
 })
